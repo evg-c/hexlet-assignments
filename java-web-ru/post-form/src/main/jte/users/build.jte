@@ -8,13 +8,13 @@
         <div>
             <label>
                 Имя
-                <input type="text" name="firstname" />
+                <input type="text" name="firstName" />
             </label>
         </div>
         <div>
             <label>
                 Фамилия
-                <input type="text" name="lastname" />
+                <input type="text" name="lastName" />
             </label>
         </div>
         <div>

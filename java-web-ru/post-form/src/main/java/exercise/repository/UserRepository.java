@@ -13,10 +13,10 @@ public class UserRepository {
 
     public static void save(User user) {
         user.setId((long) entities.size() + 1);
-        user.setFirstName(App.capitalize(user.getFirstName()));
-        user.setLastName(App.capitalize(user.getLastName()));
-        user.setEmail(user.getEmail().toLowerCase().trim());
-        user.setPassword(Security.encrypt(user.getPassword()));
+        //user.setFirstName(App.capitalize(user.getFirstName()));
+        //user.setLastName(App.capitalize(user.getLastName()));
+        //user.setEmail(user.getEmail().toLowerCase().trim());
+        //user.setPassword(Security.encrypt(user.getPassword()));
         entities.add(user);
     }
 
@@ -40,12 +40,12 @@ public class UserRepository {
     }
 
     public static List<User> getEntities() {
-        for (User user: entities) {
-            user.setFirstName(App.capitalize(user.getFirstName()));
-            user.setLastName(App.capitalize(user.getLastName()));
-            user.setEmail(user.getEmail().toLowerCase().trim());
-            user.setPassword(Security.encrypt(user.getPassword()));
-        }
+        //for (User user: entities) {
+        //    user.setFirstName(App.capitalize(user.getFirstName()));
+        //    user.setLastName(App.capitalize(user.getLastName()));
+        //    user.setEmail(user.getEmail().toLowerCase().trim());
+        //    user.setPassword(Security.encrypt(user.getPassword()));
+        //}
         return entities;
     }
 
