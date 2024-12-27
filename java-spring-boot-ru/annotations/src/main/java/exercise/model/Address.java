@@ -12,17 +12,15 @@ public class Address {
     }
 
     // BEGIN
-    
-    // END
     @Inspect
+    // END
     public String getCity() {
         return city;
     }
 
     // BEGIN
-    
-    // END
     @Inspect
+    // END
     public int getPostalCode() {
         return postalCode;
     }
