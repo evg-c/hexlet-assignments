@@ -50,6 +50,7 @@ public class CommentsController {
                 .orElseThrow(() -> new ResourceNotFoundException("Comment with id " + id + " not found"));
         comment.setPostId(data.getPostId());
         comment.setBody(data.getBody());
+        commentRepository.save(comment);
         return comment;
     }
 
