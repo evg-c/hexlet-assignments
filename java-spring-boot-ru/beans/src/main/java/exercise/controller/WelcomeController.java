@@ -16,27 +16,11 @@ import java.time.LocalDateTime;
 public class WelcomeController {
 
     @Autowired
-    private Day day;
-
-    @Autowired
-    private Night night;
-
-    @Bean
-    @Scope("prototype")
-    public Daytime objectTime() {
-        int currentHour = LocalDateTime.now().getHour();
-        if (currentHour >= 6 && currentHour < 22) {
-            return day;
-        }
-        if (currentHour >=22 || currentHour < 6) {
-            return night;
-        }
-        return null;
-    }
+    private Daytime daytime;
 
     @GetMapping(path = "/welcome")
     public String index() {
-        String currentDayTime = objectTime().getName();
+        String currentDayTime = daytime.getName();
         return "It is " + currentDayTime + " now! Welcome to Spring!";
     }
 }

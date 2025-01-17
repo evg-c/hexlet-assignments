@@ -1,6 +1,5 @@
 package exercise;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,8 +9,7 @@ import exercise.daytime.Daytime;
 import exercise.daytime.Day;
 import exercise.daytime.Night;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.web.context.annotation.RequestScope;
 
 // BEGIN
 
@@ -25,6 +23,14 @@ public class Application {
     }
 
     // BEGIN
-
+    @Bean
+    @RequestScope
+    public Daytime objectTime() {
+        int currentHour = LocalDateTime.now().getHour();
+        if (currentHour >= 6 && currentHour < 22) {
+            return new Day();
+        }
+        return new Night();
+    }
     // END
 }
