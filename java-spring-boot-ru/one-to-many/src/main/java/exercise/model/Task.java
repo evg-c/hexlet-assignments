@@ -2,7 +2,7 @@ package exercise.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
-//import jakarta.persistence.FetchType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import jakarta.persistence.Id;
@@ -41,7 +41,7 @@ public class Task {
     private LocalDate updatedAt;
 
     // BEGIN
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @NotNull
     private User assignee;
     // END
