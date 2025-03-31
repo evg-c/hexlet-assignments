@@ -14,23 +14,23 @@ class App {
         MinThread minThread = new MinThread(numbers);
 
         maxThread.start();
-        LOGGER.info("Thread MaxThread started");
+        LOGGER.info("Thread " + maxThread.getName() + "started");
 
         minThread.start();
-        LOGGER.info("Thread MinThread started");
+        LOGGER.info("Thread " + minThread.getName() + " started");
 
         try {
             maxThread.join();
-            LOGGER.info("Thread MaxThread finished");
+            LOGGER.info("Thread " + maxThread.getName() + " finished");
         } catch (InterruptedException e) {
-            LOGGER.info("Thread MaxThread interrupted");
+            LOGGER.info("Thread " + maxThread.getName() + " interrupted");
         }
 
         try {
             minThread.join();
-            LOGGER.info("Thread MinThread finished");
+            LOGGER.info("Thread " + minThread.getName() + " finished");
         } catch (InterruptedException e) {
-            LOGGER.info("Thread MinThread interrupted");
+            LOGGER.info("Thread " + minThread.getName() + " interrupted");
         }
 
         int max = maxThread.getMax();
@@ -38,6 +38,7 @@ class App {
         Map<String, Integer> result = new HashMap<>();
         result.put("min", min);
         result.put("max", max);
+        LOGGER.log(Level.INFO, "Result: " + result.toString());
         return result;
     }
     // END
